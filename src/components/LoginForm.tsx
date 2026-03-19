@@ -7,6 +7,15 @@ export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleAuth0Login = () => {
+    window.location.href = '/login';
+
+  }
+
+  const handleAuth0Register = () => {
+    window.location.href = '/register';
+  }
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -84,6 +93,34 @@ export default function LoginForm() {
           {isLoading ? <Loader2 className="animate-spin" size={20} /> : "Iniciar Sesión"}
         </button>
       </form>
+      <div className="relative my-6">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t border-slate-200"></span>
+        </div>
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="w-full border-t border-slate-500"> o tambien </span>
+        </div>
+        
+      </div>
+
+      <button 
+        onClick={handleAuth0Login}
+        type='button'
+        className='w-full bg-white border-slate-200 text-slate-700'> 
+        Iniciar sesion con Auth0
+      </button>
+
+      <div className="text-center mt-6">
+        <p className="text-sm text-slate-600">¿No tienes una cuenta?{' '}
+          <button 
+            onClick={handleAuth0Register}
+            className="text-blue-600 hover:text-blue-700 font-semibold"
+          >
+            Regístrate aquí
+          </button>
+        </p>
+      </div>
+
 
       <p className="text-center text-slate-500 text-xs">
         &copy; 2026 Tienda Online - Todos los derechos reservados
