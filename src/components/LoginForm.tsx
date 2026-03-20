@@ -8,12 +8,12 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
 
   const handleAuth0Login = () => {
-    window.location.href = '/login';
+    window.location.href = '../api/auth/login';
 
   }
 
   const handleAuth0Register = () => {
-    window.location.href = '/register';
+    window.location.href = '../api/auth/register';
   }
 
   const handleLogin = async (e: React.FormEvent) => {
